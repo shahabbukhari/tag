@@ -273,6 +273,10 @@ html.w-mod-touch * {
   padding: 9px 15px;
   text-decoration: none;
   display: inline-block;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
 }
 
 input.w-button {
@@ -2358,12 +2362,9 @@ textarea.w-input, textarea.w-select {
 }
 
 .w-layout-grid {
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-columns: 1fr;
-  display: grid;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .w-layout-vflex {
@@ -2407,7 +2408,17 @@ body {
 
 .text-h1.tugi-h {
   color: var(--blue);
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: .02em;
+  -webkit-text-stroke: 1px var(--cyan);
+  text-shadow:
+    0 1px 0 var(--ash),
+    0 2px 0 var(--ash),
+    0 3px 0 var(--ash),
+    0 4px 0 var(--ash),
+    1px 1px 0 var(--cyan),
+    -1px 1px 0 var(--cyan),
+    0 12px 18px rgba(0, 0, 0, .35);
 }
 
 .text-h1.lbybnc {
@@ -2445,7 +2456,6 @@ body {
 
 .text-body-2 {
   color: var(--black);
-  width: 827px;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 25px;
@@ -2461,7 +2471,6 @@ body {
 
 .text-body-2.tugi-2c {
   color: var(--white);
-  width: 590px;
 }
 
 .text-h3 {
@@ -2596,7 +2605,6 @@ body {
   background-color: #00000026;
   border-radius: 10px;
   max-width: 1340px;
-  height: 900px;
 }
 
 .container.navcontainer {
@@ -2630,7 +2638,7 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
-  width: 952px;
+  width: 100%;
   max-width: none;
   height: 300px;
   margin-left: 0;
@@ -2656,11 +2664,10 @@ body {
   background-color: #0000;
   justify-content: flex-end;
   align-items: flex-start;
-  width: auto;
+  width: 100%;
   height: auto;
   margin-right: auto;
   display: block;
-  overflow: hidden;
 }
 
 .container.hero-container {
@@ -2672,7 +2679,6 @@ body {
 
 .container.wch-container {
   background-color: #0000;
-  height: 520px;
   margin-top: 40px;
 }
 
@@ -2716,7 +2722,6 @@ body {
   grid-auto-flow: column;
   place-content: center space-between;
   place-items: center;
-  width: 100vw;
   height: 90px;
   display: flex;
 }
@@ -2769,7 +2774,6 @@ body {
   width: auto;
   height: 800px;
   padding-left: 125px;
-  padding-right: 125px;
   display: flex;
 }
 
@@ -2782,7 +2786,6 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
-  height: 720px;
   display: block;
 }
 
@@ -2932,8 +2935,8 @@ body {
 }
 
 .container-2 {
-  width: 1195px;
-  height: 313px;
+  max-width: 1195px;
+  min-height: 313px;
 }
 
 .values-bg {
@@ -2982,6 +2985,8 @@ body {
   margin-top: 50px;
   padding-left: 0;
   display: flex;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .slide {
@@ -3065,7 +3070,7 @@ body {
 }
 
 .wch-cards {
-  height: 341px;
+  margin-top: 20px;
 }
 
 .grid {
@@ -3083,10 +3088,30 @@ body {
   border-radius: 14px;
   justify-content: flex-start;
   align-items: center;
-  width: 581px;
-  height: 154px;
+  min-height: 154px;
+  height: auto;
   padding-left: 40px;
   display: flex;
+  width: 480px;
+  max-width: 600px;
+}
+.wch-container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;  
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .wch-content {
+    flex: 1;
+    width: auto;
+  }
+  .wch-container-cards {
+    flex-direction: column;
+  }
+  
 }
 
 .wch-content:hover {
@@ -3096,8 +3121,6 @@ body {
 }
 
 .wch-text {
-  width: 400px;
-  height: 110px;
   margin-left: 40px;
 }
 
@@ -3496,7 +3519,7 @@ body {
 
   .container.about-container {
     width: auto;
-    height: 400px;
+    min-height: 400px;
     margin-top: 0;
   }
 
@@ -3521,42 +3544,51 @@ body {
   }
 
   .section.about-section {
-    height: 900px;
+    min-height: 900px;
     padding-left: 60px;
     padding-right: 60px;
   }
 
+  .lets-connect-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 170px;
+  }
+
   .section.services-section {
-    height: 1200px;
+    min-height: 1200px;
     padding: 20px 60px;
+    padding-right: 0;
   }
 
   .section.tugi-section {
-    height: 1700px;
+    min-height: 1700px;
   }
 
   .section.wch-section {
-    height: 950px;
+    min-height: 950px;
   }
 
   .section.tugi-2-section, .section.clients-section {
-    height: 800px;
+    min-height: 800px;
   }
 
   .section.contact-section {
     background-position: 0%;
     background-size: cover;
-    height: 750px;
+    min-height: 750px;
   }
 
   .section.connect-section {
-    height: 200px;
+    min-height: 200px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
 
   .hero-bg-black {
-    width: 550px;
+    max-width: 550px;
     height: 350px;
     margin-left: 50px;
   }
@@ -3597,14 +3629,14 @@ body {
   .values-bg {
     grid-column-gap: 59px;
     grid-row-gap: 59px;
-    height: 220px;
+    min-height: 220px;
   }
 
   .values-block {
     grid-column-gap: 6px;
     grid-row-gap: 6px;
     width: 150px;
-    height: 200px;
+    min-height: 200px;
   }
 
   .image-2 {
@@ -3623,7 +3655,6 @@ body {
   }
 
   .service-card-in {
-    width: 280px;
     height: 400px;
   }
 
@@ -3898,10 +3929,6 @@ body {
     height: 1600px;
   }
 
-  .section.wch-section {
-    height: 900px;
-  }
-
   .section.tugi-2-section {
     height: 750px;
   }
@@ -4125,8 +4152,7 @@ body {
   }
 
   .section.services-section, .section.tugi-section, .section.wch-section, .section.tugi-2-section {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-inline: 20px;
   }
 
   .section.clients-section {
@@ -4226,7 +4252,6 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: 350px;
-    height: 540px;
   }
 
   .cfc {
@@ -4352,4 +4377,41 @@ body {
 #w-node-eb0526d9-e82f-5c56-d1cc-15e619a4dd5a-ea84cdf2 {
   grid-area: 5 / 1 / 6 / 2;
   place-self: start;
+}
+/* Horizontal logo carousel */
+.logo-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  animation: logo-scroll 10s linear infinite;
+  will-change: transform;
+}
+
+.logo-sequence { display: flex; align-items: center; gap: 40px; }
+
+.logo-item {
+  height: auto;
+  flex: 0 0 auto;
+  filter: grayscale(0);
+  opacity: 0.9;
+  width: 200px;
+  height: 200px;
+  object-fit: contain
+}
+
+@keyframes logo-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 767px) {
+  .logo-item { max-height: 44px; }
+  .logo-track { gap: 24px; animation-duration: 14s; }
 }
