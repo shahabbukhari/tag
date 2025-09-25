@@ -196,6 +196,10 @@ td, th {
   content: "";
 }
 
+.font-40 {
+  font-size: 40px !important;
+}
+
 .w-icon-nav-menu:before {
   content: "";
 }
@@ -276,7 +280,6 @@ html.w-mod-touch * {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 300px;
 }
 
 input.w-button {
@@ -1908,6 +1911,7 @@ textarea.w-input, textarea.w-select {
   font-size: 24px;
   display: none;
   position: relative;
+  margin-top: 2px !important;
 }
 
 .w-nav-button:focus {
@@ -2410,15 +2414,6 @@ body {
   color: var(--blue);
   font-weight: 900;
   letter-spacing: .02em;
-  -webkit-text-stroke: 1px var(--cyan);
-  text-shadow:
-    0 1px 0 var(--ash),
-    0 2px 0 var(--ash),
-    0 3px 0 var(--ash),
-    0 4px 0 var(--ash),
-    1px 1px 0 var(--cyan),
-    -1px 1px 0 var(--cyan),
-    0 12px 18px rgba(0, 0, 0, .35);
 }
 
 .text-h1.lbybnc {
@@ -2639,12 +2634,12 @@ body {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  max-width: none;
   height: 300px;
   margin-left: 0;
   margin-right: 0;
   display: block;
   overflow: hidden;
+  max-width: 900px;
 }
 
 .container.values-container {
@@ -2747,8 +2742,10 @@ body {
 
 .section.herosection {
   width: auto;
-  height: 850px;
   padding: 0;
+  position: relative;
+  min-height: 100vh;
+  height: auto;
 }
 
 .section.about-section {
@@ -2792,10 +2789,6 @@ body {
 .section.tugi-2-section {
   background-image: linear-gradient(180deg, var(--blue) 17%, #29c7e8);
   height: 650px;
-}
-
-.section.clients-section {
-  height: 720px;
 }
 
 .section.contact-section {
@@ -3089,30 +3082,28 @@ body {
   justify-content: flex-start;
   align-items: center;
   min-height: 154px;
-  height: auto;
-  padding-left: 40px;
+  height: 100%;
+  padding: 20px;
   display: flex;
-  width: 480px;
-  max-width: 600px;
-}
-.wch-container-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;  
-  align-items: center;
   width: 100%;
 }
 
-@media screen and (max-width: 1200px) {
-  .wch-content {
-    flex: 1;
-    width: auto;
-  }
-  .wch-container-cards {
-    flex-direction: column;
-  }
-  
+.wch-container-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
 }
+
+@media (max-width: 900px) {
+  .wch-container-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
 
 .wch-content:hover {
   border-width: 1px;
@@ -3326,7 +3317,7 @@ body {
   background-color: var(--cyan);
   color: var(--black);
   border-radius: 10px;
-  width: 500px;
+  width: 100%;
   height: 65px;
   font-family: Montserrat, Arial, sans-serif;
   font-size: 20px;
@@ -3521,6 +3512,7 @@ body {
     width: auto;
     min-height: 400px;
     margin-top: 0;
+    max-width: 850px;
   }
 
   .container.hero-container {
@@ -3571,7 +3563,7 @@ body {
     min-height: 950px;
   }
 
-  .section.tugi-2-section, .section.clients-section {
+  .section.tugi-2-section {
     min-height: 800px;
   }
 
@@ -3669,12 +3661,6 @@ body {
   .grid {
     flex-flow: column;
     display: flex;
-  }
-
-  .wch-content {
-    width: 620px;
-    height: 135px;
-    padding-right: 40px;
   }
 
   .wch-text {
@@ -3933,10 +3919,6 @@ body {
     height: 750px;
   }
 
-  .section.clients-section {
-    height: 700px;
-  }
-
   .section.connect-section {
     height: 300px;
   }
@@ -4005,12 +3987,6 @@ body {
   .grid {
     grid-column-gap: 24px;
     grid-row-gap: 24px;
-  }
-
-  .wch-content {
-    width: 470px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .wch-text {
@@ -4155,9 +4131,6 @@ body {
     padding-inline: 20px;
   }
 
-  .section.clients-section {
-    height: 570px;
-  }
 
   .section.contact-section {
     height: 720px;
@@ -4207,11 +4180,6 @@ body {
   .service-content {
     margin-right: 20px;
     padding-right: 0;
-  }
-
-  .wch-content {
-    width: 340px;
-    padding-right: 10px;
   }
 
   .wch-text {
@@ -4411,7 +4379,12 @@ body {
   100% { transform: translateX(-100%); }
 }
 
-@media (max-width: 767px) {
-  .logo-item { max-height: 44px; }
-  .logo-track { gap: 24px; animation-duration: 14s; }
-}
+  @media (max-width: 767px) {
+    .logo-track { animation-duration: 10s; }
+    .logo-item { width: 120px; height: 120px; }
+  
+    @keyframes logo-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-500%); }
+    }
+  } 
