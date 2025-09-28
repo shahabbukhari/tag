@@ -4438,8 +4438,8 @@ body {
 
 @media (max-width: 767px) {
   .logo-track { 
-    -webkit-animation-duration: 15s;
-    animation-duration: 15s; 
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s; 
   }
   .logo-item { 
     width: 120px; 
@@ -4452,8 +4452,8 @@ body {
       transform: translateX(0);
     }
     100% { 
-      -webkit-transform: translateX(-100%);
-      transform: translateX(-100%);
+      -webkit-transform: translateX(-500%);
+      transform: translateX(-500%);
     }
   }
   
@@ -4463,8 +4463,8 @@ body {
       transform: translateX(0);
     }
     100% { 
-      -webkit-transform: translateX(-100%);
-      transform: translateX(-100%);
+      -webkit-transform: translateX(-500%);
+      transform: translateX(-500%);
     }
   }
 } 
